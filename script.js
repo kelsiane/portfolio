@@ -1,20 +1,28 @@
-let elemento_ = document.getElementById('teste1');
-let elemento = document.getElementById('teste2');
+let skills = document.getElementById('skills-content');
 let about = document.getElementById('about-content');
+let projects = document.getElementById('projects-content');
+let buttonAbout = document.querySelector('#up-or-down1')
+let buttonProjects = document.querySelector('#up-or-down2')
+let buttonSkills = document.querySelector('#up-or-down3')
 
-about.classList.add('hidden');
 
-elemento_.classList.add('hidden')
 
-elemento.onclick = function(){
-    console.log("helllo world")
-    about.classList.remove('hidden');
-    elemento_.classList.remove('hidden')
-    elemento.classList.add('hidden')
+function upOrDown (button, div){
+button.innerText = '+'
+
+button.addEventListener('click', function (){
+    if(div.style.display === 'block'){
+        button.innerText = '+'
+        div.style.display = 'none';
+    }else{
+        div.style.display = 'block';
+        button.innerText = '-'
+    
+    }
+})
 }
 
-elemento_.onclick = function (){
-    about.classList.add('hidden')
-    elemento_.classList.add('hidden')
-    elemento.classList.remove('hidden')
-}
+
+upOrDown (buttonAbout, about);
+upOrDown (buttonProjects, projects);
+upOrDown (buttonSkills, skills);
